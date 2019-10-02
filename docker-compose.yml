@@ -7,9 +7,11 @@ fds_nginx:
     - .:/var/www/vhosts/fds
     - ./nginx.conf:/etc/nginx/conf.d/default.conf
   links:
-    - php
+    - fds_php
 
-php:
+fds_php:
+  container_name: fds_php
+  hostname: php
   image: php:7.2-fpm
   volumes:
     - .:/var/www/vhosts/fds
