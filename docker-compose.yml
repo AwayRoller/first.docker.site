@@ -15,3 +15,17 @@ fds_php:
   image: php:7.2-fpm
   volumes:
     - .:/var/www/vhosts/fds
+  links:
+    - fds_mysql
+
+fds_mysql:
+  image: mysql:5.6
+  container_name: fds_mysql
+  hostname: mysql
+  ports:
+    - 3316:3306
+  environment:
+    MYSQL_ROOT_PASSWORD: pass
+    MYSQL_DATABASE: fds_dev
+    MYSQL_USER: root
+    MYSQL_PASSWORD: ~
