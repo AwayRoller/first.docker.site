@@ -1,5 +1,6 @@
 <?php
-phpinfo();
+$mysqli = new mysqli("mysql", "root", "pass", "fds_dev");
+echo $mysqli->server_info;
 ?>
 
 <!DOCTYPE html>
