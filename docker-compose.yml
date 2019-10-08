@@ -10,9 +10,10 @@ fds_nginx:
     - fds_php
 
 fds_php:
+  build: .
+  dockerfile: setup/dev/docker/php.dockerfile
   container_name: fds_php
   hostname: php
-  image: php:7.2-fpm
   volumes:
     - .:/var/www/vhosts/fds
   links:
