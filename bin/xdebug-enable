@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+docker exec -ti fds_php sh -c "echo \"xdebug.remote_enable=1\" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini"
+docker exec -ti fds_php sh -c "echo \"xdebug.remote_host=172.17.0.1\" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini"
+docker exec -ti fds_php sh -c "echo \"xdebug.remote_port=9000\" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini"
+
+docker exec -ti fds_php sh -c "kill -USR2 1"
