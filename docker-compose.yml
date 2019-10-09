@@ -24,9 +24,16 @@ fds_mysql:
   container_name: fds_mysql
   hostname: mysql
   ports:
-    - 3316:3306
+    - 3320:3306
   environment:
     MYSQL_ROOT_PASSWORD: pass
     MYSQL_DATABASE: fds_dev
   volumes:
     - ./setup/dev/docker/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+
+fds_build:
+  build: .
+  dockerfile: setup/dev/docker/build.dockerfile
+  container_name: fds_build
+  volumes:
+    - .:/build
